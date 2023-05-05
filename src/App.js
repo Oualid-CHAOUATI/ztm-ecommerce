@@ -1,6 +1,8 @@
 // import logo from "./logo.svg";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { Categories } from "./Components/categories/categories.component";
+import { Navigation } from "./routes/navigation/navigation.component";
 
 function App() {
   const categories = [
@@ -19,7 +21,23 @@ function App() {
   ];
   return (
     <>
-      <Categories categoryList={categories} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route
+              index
+              path="/home"
+              element={<Categories categoryList={categories} />}
+            />
+            <Route
+              path="/"
+              element={<Categories categoryList={categories} />}
+            />
+
+            <Route index path="/services" element={<h2>Services</h2>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
