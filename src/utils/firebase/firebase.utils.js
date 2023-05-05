@@ -10,6 +10,8 @@ import {
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDCsxjv0vHm1GTvW4etTa0tRoYa5mwNHuM",
@@ -32,3 +34,31 @@ provider.setCustomParameters({
 export const auth = getAuth();
 
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+// ----------
+
+const usersCollection = "users";
+export const db = getFirestore();
+export const createUserDocFromAuth = async (userAuth) => {
+  const userDocRef = doc(db, usersCollection, userAuth.uid);
+
+  console.log(userDocRef);
+
+  const userSnapshot = await getDoc(userDocRef);
+  console.log(userSnapshot);
+  if (!userSnapshot.exists()) {
+    const { displayName, email } = userAuth;
+
+    const createdAt = new Date();
+
+    try {
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+      });
+    } catch (err) {
+      console.log("error creating doc ");
+    }
+  }
+};
