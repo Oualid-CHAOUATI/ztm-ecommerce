@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { Categories } from "./Components/categories/categories.component";
 import { Navigation } from "./routes/navigation/navigation.component";
+import { SignIn } from "./routes/sign-in/sign-in.component";
 
 function App() {
   const categories = [
@@ -35,6 +36,7 @@ function App() {
             />
 
             <Route index path="/services" element={<h2>Services</h2>} />
+            <Route index path="/sign-in" element={<SignIn />} />
           </Route>
         </Routes>
       </BrowserRouter>
