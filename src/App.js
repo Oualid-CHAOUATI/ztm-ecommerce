@@ -1,5 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.scss";
+import { Categories } from "./Components/categories/categories.component";
 
 function App() {
   const categories = [
@@ -18,17 +19,7 @@ function App() {
   ];
   return (
     <>
-      <div className="categories-wrapper">
-        {categories.map((category) => (
-          <div
-            className="category"
-            style={{ backgroundImage: `url(${category.imgSrc})` }}
-          >
-            <h2 className="category__name">{category.title}</h2>
-            <button>Shop now!</button>
-          </div>
-        ))}
-      </div>
+      <Categories categoryList={categories} />
     </>
   );
 }

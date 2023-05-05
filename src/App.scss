@@ -1,19 +1,13 @@
-.categories-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  text-align: center;
-  .category {
-    padding: 7em;
-    background-size: cover;
-    background-position: center;
-    background-color: #000000a9;
-    background-blend-mode: multiply;
-    color: #fff;
+body {
+  padding: 1em;
+}
 
-    button {
-      padding: 1em;
-      font-size: inherit;
-    }
-  }
+button,
+input,
+textarea {
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
 }
