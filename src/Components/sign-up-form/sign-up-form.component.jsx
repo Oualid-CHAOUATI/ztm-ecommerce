@@ -6,8 +6,10 @@
  
 // createUserDocFromAuth
 import { useState } from 'react'
-import './sign-up.style.scss'
+import './sign-up-form.style.scss'
 import { createUserAuthWithEmailAndPassword } from '../../utils/firebase/firebase.utils'
+import { FormInput } from '../form-input/form-input.component'
+import { Button } from '../Button/Button.component'
 
 
 
@@ -17,7 +19,7 @@ const defaultFormFields={
     password:"",
     confirmPassword:"",
 }
-export const SignUp=()=>{
+export const SignUpForm=()=>{
 
 const [formFields,setFromFields]=useState(defaultFormFields);
   
@@ -44,7 +46,7 @@ const handleSubmit=async (e)=>{
         setFromFields(defaultFormFields);
         
     }catch(err){
-        if(err.code=="auth/email-already-in-use"){
+        if(err.code==="auth/email-already-in-use"){
             alert("error! email already in use !")
         return;
         }
@@ -64,25 +66,14 @@ const handleSubmit=async (e)=>{
 
     <form  onSubmit={handleSubmit}>
 
-<label >
-    <span>Display name</span>
-    <input type="text" required  name="displayName" value={formFields.displayName} onChange={handleChange}/>
-</label>
-<label >
-    <span>Email</span>
-    <input type="email" required  name="email" value={formFields.email} onChange={handleChange}/>
-</label>
-<label >
-    <span>Password</span>
-    <input type="password" required  name='password' value={formFields.password} onChange={handleChange}/>
-</label>
-<label >
-    <span>Confirm password</span>
-    <input type="password" required name='confirmPassword' value={formFields.confirmPassword} onChange={handleChange}/>
-</label>
+<FormInput label='Display name' type="text" required  name="displayName" value={formFields.displayName} onChange={handleChange} />
+<FormInput  label="Email" type="email" required  name="email" value={formFields.email} onChange={handleChange}/>
+<FormInput label="Password" type="password" required  name='password' value={formFields.password} onChange={handleChange} />
+
+<FormInput label="password" type="password" required name='confirmPassword' value={formFields.confirmPassword} onChange={handleChange}/> 
 
 
-<button>Sign up</button>
+<Button>Sign up</Button>
     </form>
   
     

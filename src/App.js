@@ -3,8 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { Categories } from "./Components/categories/categories.component";
 import { Navigation } from "./routes/navigation/navigation.component";
-import { SignIn } from "./routes/sign-in/sign-in.component";
-import { SignUp } from "./routes/sign-up/sign-up.component";
+import { Authentication } from "./routes/authentication/authentication.component.jsx";
 
 function App() {
   const categories = [
@@ -37,8 +36,7 @@ function App() {
             />
 
             <Route index path="/services" element={<h2>Services</h2>} />
-            <Route index path="/sign-in" element={<SignIn />} />
-            <Route index path="/sign-up" element={<SignUp />} />
+            <Route index path="/auth" element={<Authentication />} />
           </Route>
         </Routes>
       </BrowserRouter>
