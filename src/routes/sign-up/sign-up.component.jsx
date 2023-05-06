@@ -41,7 +41,7 @@ const handleSubmit=async (e)=>{
         const response = await createUserAuthWithEmailAndPassword(email,password,displayName);
         
         console.log(response);
-        // setFromFields(defaultFormFields);
+        setFromFields(defaultFormFields);
         
     }catch(err){
         if(err.code=="auth/email-already-in-use"){
