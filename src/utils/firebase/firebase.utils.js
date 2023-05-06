@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -78,4 +79,11 @@ export const createUserAuthWithEmailAndPassword = async (
   const { user } = await createUserWithEmailAndPassword(auth, email, password);
   // console.log(user);
   return await createUserDocFromAuth(user, { displayName });
+};
+
+export const signInUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+
+  const response = await signInWithEmailAndPassword(auth, email, password);
+  console.log(response);
 };

@@ -10,7 +10,9 @@ import './sign-in-form.style.scss'
 // import { createUserAuthWithEmailAndPassword } from '../../utils/firebase/firebase.utils'
 import { FormInput } from '../form-input/form-input.component'
 import { Button, buttonTypes } from '../Button/Button.component'
-import { createUserDocFromAuth, signInWithGooglePopup } from '../../utils/firebase/firebase.utils'
+import { createUserDocFromAuth, signInUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils/firebase/firebase.utils'
+
+
 
 
 
@@ -43,9 +45,7 @@ const handleSubmit=async (e)=>{
 
     try{
 
-        // const response = await createUserAuthWithEmailAndPassword(email,password,displayName);
-        
-        // console.log(response);
+       await signInUserWithEmailAndPassword(email,password);
         setFromFields(defaultFormFields);
         
     }catch(err){
@@ -56,8 +56,8 @@ const handleSubmit=async (e)=>{
 
 
 
-        // console.log("error at create user with email an password ");
-        // console.log(err)
+        console.log("error sign in user with email an password ");
+        console.log(err)
     }
 
 }
@@ -75,7 +75,7 @@ const handleSubmit=async (e)=>{
 
 
 
-<Button>Sign In</Button>
+<Button onClick={handleSubmit}>Sign In</Button>
     <Button style={{marginTop:"1em"}} className={buttonTypes.google} onClick={logGoogleUser}>Sign in with google popup</Button>
     </form>
   
