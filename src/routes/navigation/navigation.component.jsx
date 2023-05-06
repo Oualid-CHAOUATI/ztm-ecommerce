@@ -30,6 +30,11 @@ export const Navigation=()=>{
       <Link to="sign-in">sign in</Link>
         
         </li>
+    <li>
+        
+      <Link to="sign-up">sign up</Link>
+        
+        </li>
 
         </ul>
     </nav>
