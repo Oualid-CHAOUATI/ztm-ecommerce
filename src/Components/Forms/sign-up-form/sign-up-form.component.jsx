@@ -1,16 +1,10 @@
-
-
-
-
-
- 
-// createUserDocFromAuth
 import { useState } from 'react'
 import './sign-up-form.style.scss'
-import { createUserAuthWithEmailAndPassword } from '../../utils/firebase/firebase.utils'
+ 
 import { FormInput } from '../mini-components/form-input/form-input.component'
-import { Button } from '../Button/Button.component'
 import { FormTitle } from '../mini-components/form-title/form-title.component'
+import { Button, buttonTypes } from '../../mini-components/Button/Button.component'
+import { createUserAuthWithEmailAndPassword } from '../../../utils/firebase/firebase.utils'
 
 
 
