@@ -8,6 +8,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -76,9 +77,10 @@ export const createUserAuthWithEmailAndPassword = async (
 ) => {
   if (!email || !password) return;
 
-  const { user } = await createUserWithEmailAndPassword(auth, email, password);
+  const response = await createUserWithEmailAndPassword(auth, email, password);
   // console.log(user);
-  return await createUserDocFromAuth(user, { displayName });
+  await createUserDocFromAuth(response.user, { displayName });
+  return response;
 };
 
 export const signInUserWithEmailAndPassword = async (email, password) => {
@@ -88,3 +90,5 @@ export const signInUserWithEmailAndPassword = async (email, password) => {
   console.log(response);
   return response;
 };
+
+export const signOutUser = () => signOut(auth);

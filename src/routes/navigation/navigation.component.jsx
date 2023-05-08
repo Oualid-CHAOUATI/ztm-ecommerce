@@ -3,12 +3,18 @@ import { Link, Outlet } from "react-router-dom"
 import React, { useContext } from "react";
 import "./navigation.style.scss";
 import { UserContext } from "../../contexts/user.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 // import Logo  from "../../assets/logo/Logo.png"
 export const Navigation=()=>{
 
-  const {currentUser}=useContext(UserContext);
+  const {currentUser,setCurrentUser}=useContext(UserContext);
 
+  const logOut=async()=>{
+    const response=await signOutUser();//return  undefined
+    console.log(response);
+setCurrentUser(null)
+  }
 
     return    <>
     
@@ -28,7 +34,7 @@ export const Navigation=()=>{
         
         </li>
     <li>
-        {currentUser? "log-out" :<Link to="auth">sign in</Link>
+        {currentUser? <button onClick={logOut}>log-out</button>  :<Link to="auth">sign in</Link>
         
       
       }
