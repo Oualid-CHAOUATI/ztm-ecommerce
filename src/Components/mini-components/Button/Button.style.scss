@@ -13,8 +13,8 @@
   &.google {
     background-color: blue;
     border-color: blue;
-    a:hover {
-      background-color: rgb(82, 82, 192);
+    &:hover {
+      background-color: rgb(149, 149, 243);
     }
   }
 

@@ -8,9 +8,10 @@
 import { useState } from 'react'
 import './sign-in-form.style.scss'
 // import { createUserAuthWithEmailAndPassword } from '../../utils/firebase/firebase.utils'
-import { FormInput } from '../form-input/form-input.component'
+import { FormInput } from '../mini-components/form-input/form-input.component'
 import { Button, buttonTypes } from '../Button/Button.component'
 import { createUserDocFromAuth, signInUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils/firebase/firebase.utils'
+import { FormTitle } from '../mini-components/form-title/form-title.component'
 
 
 
@@ -49,23 +50,47 @@ const handleSubmit=async (e)=>{
         setFromFields(defaultFormFields);
         
     }catch(err){
-        // if(err.code==="auth/email-already-in-use"){
-        //     alert("error! email already in use !")
-        // return;
-        // }
+        let errorMessage=null;
 
+        switch (err.code) {
+            case "auth/invalid-email":
+              errorMessage= ("The email address you entered is not valid.");
+              break;
+            case "auth/user-disabled":
+              errorMessage= ("Your account has been disabled by an administrator.");
+              break;
+            case "auth/user-not-found":
+              errorMessage= ("The email address you entered is not associated with any account.");
+              break;
+            case "auth/wrong-password":
+              errorMessage= ("The password you entered is incorrect.");
+              break;
+            case "auth/network-request-failed":
+              errorMessage= ("There was a problem with the network connection.");
+              break;
+            case "auth/too-many-requests":
+              errorMessage= ("Too many requests have been made from this device. Try again later.");
+              break;
+            case "auth/internal-error":
+              errorMessage= ("An internal error has occurred. Please try again later.");
+              break;
+            default:
+              errorMessage= ("An unknown error occurred. Please try again later.");
+              break;
+          }
+          if(errorMessage) alert(errorMessage)
+        }
 
-
-        console.log("error sign in user with email an password ");
-        console.log(err)
     }
 
-}
+
     return <div>
 
-<h1>
-    Sign up with your email and password
-</h1>
+<FormTitle>
+
+    Sign in with your email and password
+</FormTitle>
+
 
     <form  onSubmit={handleSubmit}>
 
@@ -76,7 +101,7 @@ const handleSubmit=async (e)=>{
 
 
 <Button onClick={handleSubmit}>Sign In</Button>
-    <Button style={{marginTop:"1em"}} className={buttonTypes.google} onClick={logGoogleUser}>Sign in with google popup</Button>
+    <Button  className={buttonTypes.google} onClick={logGoogleUser} type='button'>Sign in with google popup</Button>
     </form>
   
     

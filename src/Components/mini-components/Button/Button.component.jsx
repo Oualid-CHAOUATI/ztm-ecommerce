@@ -11,6 +11,6 @@ export const buttonTypes={
 }
 export const Button=({children,className=buttonTypes.default,...otherProps})=>{
 
-    return <button className={"btn "+className}>{children}</button>
+    return <button className={"btn "+className} {...otherProps}>{children}</button>
 
 }

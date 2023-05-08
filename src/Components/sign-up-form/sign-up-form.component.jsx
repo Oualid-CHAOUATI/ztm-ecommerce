@@ -8,8 +8,9 @@
 import { useState } from 'react'
 import './sign-up-form.style.scss'
 import { createUserAuthWithEmailAndPassword } from '../../utils/firebase/firebase.utils'
-import { FormInput } from '../form-input/form-input.component'
+import { FormInput } from '../mini-components/form-input/form-input.component'
 import { Button } from '../Button/Button.component'
+import { FormTitle } from '../mini-components/form-title/form-title.component'
 
 
 
@@ -46,23 +47,42 @@ const handleSubmit=async (e)=>{
         setFromFields(defaultFormFields);
         
     }catch(err){
-        if(err.code==="auth/email-already-in-use"){
-            alert("error! email already in use !")
-        return;
+        const errorCode= err.code;
+        let  errorMessage=null;
+        switch (errorCode) {
+            case "auth/email-already-in-use":
+              errorMessage= "The email address you entered is already associated with another account.";break;
+            case "auth/invalid-email":
+              errorMessage= "The email address you entered is not valid.";break;
+            case "auth/operation-not-allowed":
+              errorMessage= "The email/password authentication provider is not enabled.";break;
+            case "auth/weak-password":
+              errorMessage= "The password you entered is too weak.";break;
+            case "auth/network-request-failed":
+              errorMessage= "There was a problem with the network connection.";break;
+            case "auth/too-many-requests":
+              errorMessage= "Too many requests have been made from this device. Try again later.";break;
+            case "auth/internal-error":
+              errorMessage= "An internal error has occurred. Please try again later.";break;
+            default:
+              errorMessage= "An unknown error occurred. Please try again later.";
+          }
+        return alert(errorMessage
+            )
         }
 
 
 
-        console.log("error at create user with email an password ");
-        console.log(err)
     }
 
-}
+
     return <div>
 
-<h1>
+
+<FormTitle>
     Sign up with your email and password
-</h1>
+
+</FormTitle>
 
     <form  onSubmit={handleSubmit}>
 
