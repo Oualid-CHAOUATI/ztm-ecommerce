@@ -4,6 +4,7 @@ import "./App.scss";
 import { Categories } from "./Components/categories/categories.component";
 import { Navigation } from "./routes/navigation/navigation.component";
 import { Authentication } from "./routes/authentication/authentication.component.jsx";
+import { UserProvider } from "./contexts/user.context";
 
 function App() {
   const categories = [
@@ -22,24 +23,26 @@ function App() {
   ];
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Navigation />}>
-            <Route
-              index
-              path="/home"
-              element={<Categories categoryList={categories} />}
-            />
-            <Route
-              path="/"
-              element={<Categories categoryList={categories} />}
-            />
+      <UserProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Navigation />}>
+              <Route
+                index
+                path="/home"
+                element={<Categories categoryList={categories} />}
+              />
+              <Route
+                path="/"
+                element={<Categories categoryList={categories} />}
+              />
 
-            <Route index path="/services" element={<h2>Services</h2>} />
-            <Route index path="/auth" element={<Authentication />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+              <Route index path="/services" element={<h2>Services</h2>} />
+              <Route index path="/auth" element={<Authentication />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </UserProvider>
     </>
   );
 }
