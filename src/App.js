@@ -6,6 +6,7 @@ import { Navigation } from "./routes/navigation/navigation.component";
 import { Authentication } from "./routes/authentication/authentication.component.jsx";
 import { UserProvider } from "./contexts/user.context";
 import { Shop } from "./routes/shop/shop.component";
+import { ProductsProvider } from "./contexts/products.context.jsx";
 
 function App() {
   const categories = [
@@ -22,27 +23,30 @@ function App() {
         "https://images.unsplash.com/photo-1605908502724-9093a79a1b39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
     },
   ];
+
   return (
     <>
       <UserProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Navigation />}>
-              <Route
-                index
-                path="/home"
-                element={<Categories categoryList={categories} />}
-              />
-              <Route
-                path="/"
-                element={<Categories categoryList={categories} />}
-              />
+        <ProductsProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Navigation />}>
+                <Route
+                  index
+                  path="/home"
+                  element={<Categories categoryList={categories} />}
+                />
+                <Route
+                  path="/"
+                  element={<Categories categoryList={categories} />}
+                />
 
-              <Route index path="/shop" element={<Shop />} />
-              <Route index path="/auth" element={<Authentication />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+                <Route index path="/shop" element={<Shop />} />
+                <Route index path="/auth" element={<Authentication />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </ProductsProvider>
       </UserProvider>
     </>
   );
