@@ -20,7 +20,8 @@ const value={currentUser,setCurrentUser};
 useEffect(()=>{
 
 const unsubsribe = onAuthStateChangedListener((user)=>{
-console.log(user)
+console.log(user);
+setCurrentUser(user)
 })
 
 
