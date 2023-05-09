@@ -28,8 +28,9 @@ export const SignInForm=()=>{
 
     const logGoogleUser = async ()=>{
 
-        const {user} = await signInWithGooglePopup();
-        createUserDocFromAuth(user);
+         await signInWithGooglePopup();
+        
+       
     }
 const [formFields,setFromFields]=useState(defaultFormFields);
   
