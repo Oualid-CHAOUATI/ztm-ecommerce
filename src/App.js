@@ -5,6 +5,7 @@ import { Categories } from "./Components/categories/categories.component";
 import { Navigation } from "./routes/navigation/navigation.component";
 import { Authentication } from "./routes/authentication/authentication.component.jsx";
 import { UserProvider } from "./contexts/user.context";
+import { Shop } from "./routes/shop/shop.component";
 
 function App() {
   const categories = [
@@ -37,7 +38,7 @@ function App() {
                 element={<Categories categoryList={categories} />}
               />
 
-              <Route index path="/services" element={<h2>Services</h2>} />
+              <Route index path="/shop" element={<Shop />} />
               <Route index path="/auth" element={<Authentication />} />
             </Route>
           </Routes>

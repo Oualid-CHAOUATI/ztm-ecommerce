@@ -30,7 +30,7 @@ setCurrentUser(null)
         </li>
     <li>
         
-      <Link to="services">Services</Link>
+      <Link to="shop">shop</Link>
         
         </li>
     <li>
