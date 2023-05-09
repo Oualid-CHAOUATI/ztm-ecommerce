@@ -9,6 +9,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -92,3 +93,8 @@ export const signInUserWithEmailAndPassword = async (email, password) => {
 };
 
 export const signOutUser = () => signOut(auth);
+
+export const onAuthStateChangedListener = (callcback) =>
+  onAuthStateChanged(auth, callcback);
+
+//callback here accepts one parameter .. with is the user object or null
