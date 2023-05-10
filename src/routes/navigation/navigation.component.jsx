@@ -1,14 +1,17 @@
 import { Link, Outlet } from "react-router-dom"
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./navigation.style.scss";
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { ShoppingCart } from "../../Components/shopping-cart/shopping-cart.component";
+import { CartDropdown } from "../../Components/cart-dropdown/cart-dropdown.component";
 
 // import Logo  from "../../assets/logo/Logo.png"
 export const Navigation=()=>{
 
+
+  // const [isOpenDropdown,setIsOpenDropdown]=useState(false);
   const {currentUser,setCurrentUser}=useContext(UserContext);
 
   const logOut=async()=>{
@@ -42,7 +45,11 @@ setCurrentUser(null)
         
         </li>
    
-   <li><ShoppingCart/> </li>
+   <li className="shopping-cart-wrapper">
+    
+    <ShoppingCart   /> 
+    <CartDropdown />
+    </li>
         </ul>
     </nav>
     

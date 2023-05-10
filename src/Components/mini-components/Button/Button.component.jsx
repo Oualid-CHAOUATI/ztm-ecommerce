@@ -9,8 +9,8 @@ export const BUTTON_TYPES={
     google:"google",
     inverted:"inverted"
 }
-export const Button=({children,styleType=BUTTON_TYPES.default,...otherProps})=>{
+export const Button=({children,className,styleType=BUTTON_TYPES.default,...otherProps})=>{
 
-    return <button className={"btn "+styleType} {...otherProps}>{children}</button>
+    return <button className={"btn "+styleType+" "+className} {...otherProps}>{children}</button>
 
 }

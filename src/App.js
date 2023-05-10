@@ -7,6 +7,7 @@ import { Authentication } from "./routes/authentication/authentication.component
 import { UserProvider } from "./contexts/user.context";
 import { Shop } from "./routes/shop/shop.component";
 import { ProductsProvider } from "./contexts/products.context.jsx";
+import { CartProvider } from "./contexts/cart.context";
 
 function App() {
   const categories = [
@@ -28,24 +29,26 @@ function App() {
     <>
       <UserProvider>
         <ProductsProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Navigation />}>
-                <Route
-                  index
-                  path="/home"
-                  element={<Categories categoryList={categories} />}
-                />
-                <Route
-                  path="/"
-                  element={<Categories categoryList={categories} />}
-                />
+          <CartProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Navigation />}>
+                  <Route
+                    index
+                    path="/home"
+                    element={<Categories categoryList={categories} />}
+                  />
+                  <Route
+                    path="/"
+                    element={<Categories categoryList={categories} />}
+                  />
 
-                <Route index path="/shop" element={<Shop />} />
-                <Route index path="/auth" element={<Authentication />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
+                  <Route index path="/shop" element={<Shop />} />
+                  <Route index path="/auth" element={<Authentication />} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </CartProvider>
         </ProductsProvider>
       </UserProvider>
     </>
