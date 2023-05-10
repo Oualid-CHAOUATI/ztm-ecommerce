@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import "./navigation.style.scss";
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { ShoppingCart } from "../../Components/shopping-cart/shopping-cart.component";
 
 // import Logo  from "../../assets/logo/Logo.png"
 export const Navigation=()=>{
@@ -41,6 +42,7 @@ setCurrentUser(null)
         
         </li>
    
+   <li><ShoppingCart/> </li>
         </ul>
     </nav>
     

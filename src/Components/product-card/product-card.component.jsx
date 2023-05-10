@@ -11,7 +11,7 @@ return <>
 <img src={imageUrl} alt={name} />
 <p className="product__name">{name}</p>
 <p className="product__price">${price}</p>
-<Button  className={"product__btn "+BUTTON_TYPES.inverted} >add to cart</Button>
+<Button  styleType={"product__btn "+BUTTON_TYPES.inverted} >add to cart</Button>
 </div>
 
 

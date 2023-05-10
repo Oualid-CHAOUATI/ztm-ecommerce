@@ -1,0 +1,21 @@
+.shopping-cart {
+  border: 2px dashed black;
+
+  position: relative;
+
+  &__counter {
+    position: absolute;
+    background-color: rgb(44, 216, 10);
+    top: 60%;
+    right: -10%;
+    // height: 1em;
+    font-family: "Courier New", Courier, monospace;
+
+    // border-radius: 2em;
+    padding: 0.2em;
+  }
+
+  img {
+    height: 1.5em;
+  }
+}

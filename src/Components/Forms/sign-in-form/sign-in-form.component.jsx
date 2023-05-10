@@ -105,7 +105,7 @@ const handleSubmit=async (e)=>{
 
 
 <Button onClick={handleSubmit}>Sign In</Button>
-    <Button  className={BUTTON_TYPES.google} onClick={logGoogleUser} type='button'>Sign in with google popup</Button>
+    <Button  styleType={BUTTON_TYPES.google} onClick={logGoogleUser} type='button'>Sign in with google popup</Button>
     </form>
   
     
