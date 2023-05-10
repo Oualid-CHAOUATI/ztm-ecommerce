@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import "./shop.style.scss";
 import { ProductsContext } from "../../contexts/products.context.jsx";
+import { ProductCard } from "../../Components/product-card/product-card.component";
 export const Shop=()=>{
 
 
@@ -16,12 +17,7 @@ return <>
 
 {products.map(({id,name,imageUrl,price})=>{
     
-    return <div className="product"  key={id}>
-
-    <img src={imageUrl} alt={name} />
-    <p className="product__name">{name}</p>
-    <p className="product__price">${price}</p>
-</div>
+    return <ProductCard   key={id}  {...{name,imageUrl,price}}/>
 
 })}
 </div>

@@ -1,21 +1,6 @@
 .products-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
-
-  .product {
-    border: 2px dashed black;
-    padding: 0.5em;
-    &__name {
-      // background-color: rgba(255, 255, 255, 0.719);
-      z-index: 2;
-      position: relative;
-    }
-    &__price {
-      color: red;
-      display: inline-flex;
-      align-items: center;
-      line-height: 0;
-    }
-  }
+  row-gap: 2em;
+  column-gap: 1em;
 }

@@ -9,10 +9,10 @@ import {  useState } from 'react'
 import './sign-in-form.style.scss'
 // import { createUserAuthWithEmailAndPassword } from '../../utils/firebase/firebase.utils'
 import { FormInput } from '../mini-components/form-input/form-input.component'
-// import { Button, buttonTypes } from '../Button/Button.component'
+// import { Button, BUTTON_TYPES } from '../Button/Button.component'
 
 import { createUserDocFromAuth, signInUserWithEmailAndPassword, signInWithGooglePopup } from '../../../utils/firebase/firebase.utils'
-import { Button, buttonTypes } from '../../mini-components/Button/Button.component'
+import { Button, BUTTON_TYPES } from '../../mini-components/Button/Button.component'
 import { FormTitle } from '../mini-components/form-title/form-title.component'
 
 
@@ -105,7 +105,7 @@ const handleSubmit=async (e)=>{
 
 
 <Button onClick={handleSubmit}>Sign In</Button>
-    <Button  className={buttonTypes.google} onClick={logGoogleUser} type='button'>Sign in with google popup</Button>
+    <Button  className={BUTTON_TYPES.google} onClick={logGoogleUser} type='button'>Sign in with google popup</Button>
     </form>
   
     

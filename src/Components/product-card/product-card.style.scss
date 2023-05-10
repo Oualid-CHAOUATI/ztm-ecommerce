@@ -1,0 +1,26 @@
+.product {
+  border: 3px dashed rgba(0, 0, 0, 0.329);
+  padding: 0.5em;
+
+  img {
+    width: 300px;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+  }
+  &__name {
+    // background-color: rgba(255, 255, 255, 0.719);
+    z-index: 2;
+    position: relative;
+  }
+  &__price {
+    color: red;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+  }
+  &__btn {
+    display: block;
+    width: 100%;
+    margin-top: 0.5em;
+  }
+}

@@ -3,7 +3,7 @@ import './sign-up-form.style.scss'
  
 import { FormInput } from '../mini-components/form-input/form-input.component'
 import { FormTitle } from '../mini-components/form-title/form-title.component'
-import { Button, buttonTypes } from '../../mini-components/Button/Button.component'
+import { Button, BUTTON_TYPES } from '../../mini-components/Button/Button.component'
 import { createUserAuthWithEmailAndPassword } from '../../../utils/firebase/firebase.utils'
 
 
