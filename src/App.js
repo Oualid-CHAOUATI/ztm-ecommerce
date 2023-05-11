@@ -8,6 +8,7 @@ import { UserProvider } from "./contexts/user.context";
 import { Shop } from "./routes/shop/shop.component";
 import { ProductsProvider } from "./contexts/products.context.jsx";
 import { CartProvider } from "./contexts/cart.context";
+import { Checkout } from "./Components/checkout/checkout.component";
 
 function App() {
   const categories = [
@@ -45,6 +46,7 @@ function App() {
 
                   <Route index path="/shop" element={<Shop />} />
                   <Route index path="/auth" element={<Authentication />} />
+                  <Route index path="/checkout" element={<Checkout />} />
                 </Route>
               </Routes>
             </BrowserRouter>

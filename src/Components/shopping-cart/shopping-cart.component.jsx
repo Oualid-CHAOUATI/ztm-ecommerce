@@ -12,6 +12,7 @@ export const ShoppingCart=()=>{
 
     const {setIsOpenDropdown,totalItems}=useContext(CartContext);
     const toggleIsDropdonwOpen=()=>{
+        // setIsOpenDropdown(false)
         setIsOpenDropdown(state=>!state);
     }
 
