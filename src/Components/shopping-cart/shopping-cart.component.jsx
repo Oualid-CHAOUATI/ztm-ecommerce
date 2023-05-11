@@ -10,14 +10,14 @@ export const ShoppingCart=()=>{
 
 
 
-    const {setIsOpenDropdown}=useContext(CartContext);
+    const {setIsOpenDropdown,totalItems}=useContext(CartContext);
     const toggleIsDropdonwOpen=()=>{
         setIsOpenDropdown(state=>!state);
     }
 
     return <div className="shopping-cart" onClick={toggleIsDropdonwOpen} >
 
-    <p className="shopping-cart__counter">1</p>
+    <p className="shopping-cart__counter">{totalItems}</p>
     {/* <img src="../../assets/icons/shopping-cart.svg" alt='cart-icon'/> */}
     <img src={imgUrl} alt='cart-icon'/>
     

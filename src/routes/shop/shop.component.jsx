@@ -17,7 +17,7 @@ return <>
 
 {products.map(({id,name,imageUrl,price})=>{
     
-    return <ProductCard   key={id}  {...{name,imageUrl,price}}/>
+    return <ProductCard   key={id}  {...{name,imageUrl,price,id}}/>
 
 })}
 </div>
