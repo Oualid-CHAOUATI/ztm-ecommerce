@@ -14,7 +14,14 @@ import {
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+} from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -45,6 +52,22 @@ export const signInWithGoogleRedirect = () =>
 const usersCollection = "users";
 export const db = getFirestore();
 
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    //créer un document dns la collection précisée nommé (onb.title)
+    batch.set(docRef, object);
+    //chaque doc sera sous la forme
+    //  {   title, items  }
+  });
+  await batch.commit();
+  console.log("batch commit done !");
+};
 export const createUserDocFromAuth = async (userAuth, extraInfo = {}) => {
   const userDocRef = doc(db, usersCollection, userAuth.uid);
 
