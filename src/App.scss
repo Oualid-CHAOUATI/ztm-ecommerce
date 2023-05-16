@@ -7,6 +7,7 @@
 body {
   padding: 1em;
   font-size: clamp(15px, 2vw, 26px);
+  overflow-x: hidden;
 }
 
 button,
@@ -25,5 +26,3 @@ button {
 }
 
 // ----------------------------------- forms
-
-

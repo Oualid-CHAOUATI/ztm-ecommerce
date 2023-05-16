@@ -6,7 +6,7 @@ import { Navigation } from "./routes/navigation/navigation.component";
 import { Authentication } from "./routes/authentication/authentication.component.jsx";
 import { UserProvider } from "./contexts/user.context";
 import { Shop } from "./routes/shop/shop.component";
-import { ProductsProvider } from "./contexts/products.context.jsx";
+import { CategoriessProvider } from "./contexts/categories.context";
 import { CartProvider } from "./contexts/cart.context";
 import { Checkout } from "./Components/checkout/checkout.component";
 
@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <UserProvider>
-        <ProductsProvider>
+        <CategoriessProvider>
           <CartProvider>
             <BrowserRouter>
               <Routes>
@@ -51,7 +51,7 @@ function App() {
               </Routes>
             </BrowserRouter>
           </CartProvider>
-        </ProductsProvider>
+        </CategoriessProvider>
       </UserProvider>
     </>
   );
