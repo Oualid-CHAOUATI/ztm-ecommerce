@@ -44,7 +44,7 @@ function App() {
                     element={<Categories categoryList={categories} />}
                   />
 
-                  <Route index path="/shop" element={<Shop />} />
+                  <Route index path="/shop/*" element={<Shop />} />
                   <Route index path="/auth" element={<Authentication />} />
                   <Route index path="/checkout" element={<Checkout />} />
                 </Route>
