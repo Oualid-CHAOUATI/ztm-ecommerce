@@ -1,0 +1,33 @@
+.category-preview {
+  padding-block: 2em;
+  &__title {
+    text-align: center;
+    font-size: 2em;
+    padding-bottom: 1em;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: hsla(266, 58%, 28%, 1);
+    background-image: radial-gradient(
+        at 40% 20%,
+        hsla(325, 89%, 30%, 1) 0px,
+        transparent 50%
+      ),
+      radial-gradient(at 84% 76%, hsla(323, 87%, 8%, 1) 0px, transparent 50%);
+    inset-inline: -50vw;
+    inset-block: 0;
+    z-index: -1;
+    opacity: 0.8;
+  }
+}
+.products-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}

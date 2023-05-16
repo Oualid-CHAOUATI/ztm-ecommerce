@@ -13,10 +13,11 @@
     position: relative;
   }
   &__price {
-    color: red;
-    display: inline-flex;
-    align-items: center;
-    line-height: 0;
+    display: inline-block;
+    background-color: antiquewhite;
+    line-height: 90%;
+    padding: 0.2em;
+    border-radius: 0.2em;
   }
   &__btn {
     display: block;
