@@ -1,4 +1,5 @@
 import { createContext, useState ,useReducer } from "react"
+import { createAction } from "../utils/firebase/reducer/reducer.utils";
 
 
 
@@ -29,6 +30,8 @@ const INITIAL_STATE={
     cartItems:[],
 
 }
+
+
 
 
 export const CART_REDUCER_ACTIONS={
@@ -75,9 +78,9 @@ export const CartProvider=({children})=>{
         
 
         const payload={cartItems:newCartItems,totalPrice,totalItems};
-        dispatch({type:CART_REDUCER_ACTIONS.SET_CART_ITEMS,payload})
+        dispatch(createAction(CART_REDUCER_ACTIONS.SET_CART_ITEMS,payload));
         
-        }
+    }
 
         const addItemToCart = (itemToAdd,number=1)=>{
             updateCartItems(addCartItem(cartItems,itemToAdd,number));
