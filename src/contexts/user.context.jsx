@@ -11,8 +11,6 @@ export const UserContext= createContext({
 const USER_REDUCER_ACTION_TYPES= {SET_CURRENT_USER:"SET_CURRENT_USER"}
 
 const userReducer = (state,action)=>{
-    console.log("dispatched")
-    console.log(action)
 ;
 const {type,payload}=action;
 
@@ -27,7 +25,6 @@ export const UserProvider=({children})=>{
 
 const [{currentUser},dispatch]=useReducer(userReducer,INITIAL_STATE);
 
-console.log(currentUser);
 const setCurrentUser=(user)=>dispatch({type:USER_REDUCER_ACTION_TYPES.SET_CURRENT_USER,payload:user});
 const value={currentUser,setCurrentUser};
 
@@ -35,7 +32,7 @@ useEffect(()=>{
 
 const unsubsribe = onAuthStateChangedListener((user)=>{
     if(user)createUserDocFromAuth(user); // et dans createUserDonc .. si une snapshot existe .. enregstre .. sinon ne rien faire
-console.log(user);
+// console.log(user);
 setCurrentUser(user)
 })
 

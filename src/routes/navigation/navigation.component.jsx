@@ -16,7 +16,7 @@ export const Navigation=()=>{
 
   const logOut=async()=>{
     const response=await signOutUser();//return  undefined
-    console.log(response);
+    // console.log(response);
 setCurrentUser(null)
   }
 

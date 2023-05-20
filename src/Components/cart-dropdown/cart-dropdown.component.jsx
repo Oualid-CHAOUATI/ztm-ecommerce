@@ -18,7 +18,6 @@ setIsOpenDropdown(false)
     }
     const {cartItems,totalPrice,totalItems}=useContext(CartContext);
 
-// console.log(open);
 
 
     return <div className='dropdown' open={isDropdownOpen}>
